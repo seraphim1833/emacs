@@ -57,42 +57,52 @@ IC XS  +  NI KA
 ** Navegación fluida
 #+BEGIN_SRC emacs-lisp
   ;;(package-vc-install '(ultra-scroll :vc-backend Git :url  "https://github.com/jdtsmith/ultra-scroll"))
-  (use-package ultra-scroll
+  ;;(use-package ultra-scroll
 					  ;:load-path "~/code/emacs/ultra-scroll" ; if you git clone'd instead of package-vc-install
-    :init
-    (setq scroll-conservatively 101 ; important!
-	  scroll-margin 0) 
-    :config
-    (ultra-scroll-mode 1))
+    ;;:init
+    ;;(setq scroll-conservatively 101 ; important!
+;;	  scroll-margin 0) 
+  ;;  :config
+    ;;(ultra-scroll-mode 1))
 #+END_SRC
 
 ** Tipografías/Fuentes
 #+BEGIN_SRC emacs-lisp
-	;;(custom-theme-set-faces
-  (set-face-attribute 'default nil :family "GoMono Nerd Font Mono" :height 180)
-  (set-face-attribute 'variable-pitch nil :family "EB Garamond" :height 1.25)
-  (set-face-attribute 'fixed-pitch nil :family "GoMono Nerd Font Mono" :height 180)
-	 ;;'user
-      ;;   '(default ((t ( :family "GoMono Nerd Font Mono" :height 160))))
-    ;;     '(variable-pitch ((t (:family "EB Garamond" :height 1.25))))
-  ;;       '(fixed-pitch ((t (:family "GoMono Nerd Font Mono" :height 160))))
-  ;;       '(mode-line ((t (:height 160))))
-  ;;       )
-	;;(setq-default line-spacing 15)
-	;;  (add-text-properties (point-min) (point-max)
-	;;                   '(line-spacing 0.25 line-height 1.25))
-	;;(setq default-text-properties '(line-spacing 0.25 line-height 1.25))
+    ;;(custom-theme-set-faces
+    (set-face-attribute 'default nil
+			:family "Iosevka Fixed Curly Slab"
+			:weight 'medium
+			:height 180)
+    (set-face-attribute 'fixed-pitch nil
+			:family "Iosevka Fixed Curly Slab"
+			:weight 'medium
+			:height 180)
+    (set-face-attribute 'variable-pitch nil
+			:family "EB Garamond"
+			:height 1.25)
+    ;;(setq-default line-spacing 15)
+    ;;  (add-text-properties (point-min) (point-max)
+    ;;                   '(line-spacing 0.25 line-height 1.25))
+    ;;(setq default-text-properties '(line-spacing 0.25 line-height 1.25))
 #+END_SRC
 
-** Tema: Catpuccin
+** Tema
 #+BEGIN_SRC emacs-lisp
-  (setq custom-safe-themes t)
-  (use-package catppuccin-theme)
-  (load-theme 'catppuccin :no-confirm)
-  (setq catppuccin-flavor 'latte) ;; or 'latte, 'macchiato, or 'mocha
-  (catppuccin-reload)
-  ;;(use-package spacemacs-theme)
-  ;;(load-theme 'spacemacs-light)
+	(setq custom-safe-themes t)
+
+  ;; Catppuccin
+    ;;(use-package catppuccin-theme)
+	;;(load-theme 'catppuccin :no-confirm)
+	;;(setq catppuccin-flavor 'latte) ;; or 'latte, 'macchiato, or 'mocha
+	;;(catppuccin-reload)
+
+  ;; Spacemacs
+	;;(use-package spacemacs-theme)
+	;;(load-theme 'spacemacs-light)
+
+  ;; Dracula
+  (use-package dracula-theme)
+  (load-theme 'dracula :no-confirm)
 #+END_SRC
 
 ** DOOM-modeline
@@ -110,6 +120,14 @@ IC XS  +  NI KA
   (setq mode-line-right-align-edge 'right-fringe)
   (line-number-mode 0)
 #+END_SRC
+
+Usar =Nyan mode= para ver el punto en el archivo
+#+begin_src emacs-lisp
+  (use-package nyan-mode)
+  (setq nyan-animate-nyancat t)
+  (setq nyan-wavy-trail t)
+  (nyan-mode)
+#+end_src
 
 ** Limpiar la interfaz
 #+BEGIN_SRC emacs-lisp
