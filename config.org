@@ -225,6 +225,11 @@ Usar =Nyan mode= para ver el punto en el archivo
   (add-hook 'org-mode-hook 'visual-fill-column-mode)
 #+END_SRC
 
+#+begin_src emacs-lisp
+  (dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+#+end_src
+
 * AUCTeX
 #+BEGIN_SRC emacs-lisp
   (use-package auctex
